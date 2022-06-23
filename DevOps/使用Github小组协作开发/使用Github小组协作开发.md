@@ -5,19 +5,17 @@
 ls ~/.ssh
 # 生成ssh公私钥
 ssh-keygen -t ed25519 -C ${your_email_name}
-# 后面可以一路回车，不用做额外的处理
+# 根据提示及自身需求配置
 ```
 
 ```shell
 ls ~/.ssh
-# id_ed25519.pub是公钥。公钥可以放到公网上面去。
+# id_ed25519.pub是生成的公钥，将生成的秘钥粘贴到github代码托管服务器上
 # id_ed25519是私钥。私钥可以留在本地。
 id_ed25519  id_ed25519.pub
 ```
 
 GitHub->setting->SSH and GPG keys->New SSH key添加上面的公钥即可。一个账户可以配置多个这样的公钥。
-
-使用公私钥的好处是使用push的时候不再需要用户名和密码。
 
 
 
@@ -25,7 +23,7 @@ GitHub->setting->SSH and GPG keys->New SSH key添加上面的公钥即可。一�
 
 可以通过Github username，邮件等方式邀请他人加入组织。组织内部可以创建多个仓库以及博客。
 
-![image/20220607-20220606165146228](image/20220607/invite_member.png)
+![image/20220607-20220606165146228](image/invite_member.png)
 
 当然对于组织成员可以进行权限的管理，对于一个仓库，组织管理员可以在仓库Settings里的Member privileges对成员权限进行设置。
 
@@ -37,7 +35,7 @@ GitHub->setting->SSH and GPG keys->New SSH key添加上面的公钥即可。一�
 
 对于feature以及其他的变更，需要通过pull request的方式提交。在进行merge的时候需要至少两人的code review。以便对master分支做保护。
 
-![image/20220607-20220606150619804](image/20220607/branch_protect.png)
+![image/20220607-20220606150619804](image/branch_protect.png)
 
 
 
@@ -99,11 +97,11 @@ git push
 
 #### 5. GitHub Pull Request
 
-![image/20220607-20220607015533198](image/20220607/pull_request.png)
+![image/20220607-20220607015533198](image/pull_request.png)
 
 
 
-![image/20220607-20220606162946704](image/20220607/select_reviewer.png)
+![image/20220607-20220606162946704](image/select_reviewer.png)
 
 在提交的时候可以选择reviewer，进行code review，届时reviewer会收到review请求的邮件。
 
@@ -111,7 +109,7 @@ git push
 
 #### 6. GitHub Code Review
 
-![image/20220607-20220606163439494](image/20220607/code_review.png)
+![image/20220607-20220606163439494](image/code_review.png)
 
 reviewer可以通过Github面板对Pull Request提出建议，Review以邮件的方式回馈给submiter。
 
@@ -236,7 +234,7 @@ git fetch/pull
 
 在**Settings**的**Features**设置issue的模板。
 
-![image/20220607-20220607004358379](image/20220607/issue_tamplate.png)
+![image/20220607-20220607004358379](image/issue_tamplate.png)
 
 在项目issue中提交，可以将issue指派给某个人，可以设置issue的标签。在issue栏目中可以对既有的issue进行过滤筛选。
 
@@ -246,7 +244,7 @@ git fetch/pull
 
 在Projects新建Project（一个仓库可以添加多个project），有几个模板可供选择。创建好Project之后，可以通过Add Card的方式添加需要对应的任务，把它们添加到to do list里面，进而对issue、pull request以及其他任务进行跟踪管理。
 
-![image/20220607-20220607005746590](image/20220607/project_kanban.png)
+![image/20220607-20220607005746590](image/project_kanban.png)
 
 
 
@@ -254,7 +252,7 @@ git fetch/pull
 
 在进行特性分支向master分支合并，有3个选项：
 
-![image/20220607-20220607011619027](image/20220607/merge_method.png)
+![image/20220607-20220607011619027](image/merge_method.png)
 
 ##### merge commit
 
@@ -311,11 +309,11 @@ git log --graph origin/master
 
 GitHub提供可视化的分支查看**Insights**下的**Network**
 
-![image/20220607-20220607012610433](image/20220607/branch_state_01.png)
+![image/20220607-20220607012610433](image/branch_state_01.png)
 
 同理，我们将特性分支feature/cpp也merge进master当中，在看一下分支的状况：
 
-![image/20220607-20220607013236202](image/20220607/branch_state_02.png)
+![image/20220607-20220607013236202](image/branch_state_02.png)
 
 如果projects应用的模板是自动管理kanban，当我们完成将特性分支merge到master分支后，projects对应的pull request会自动切换成Done的状态。
 
@@ -327,11 +325,11 @@ GitHub提供可视化的分支查看**Insights**下的**Network**
 
 
 
-![image/20220607-20220607020253683](image/20220607/squash_merge.png)
+![image/20220607-20220607020253683](image/squash_merge.png)
 
 我们查看一下分支情况：
 
-![image/20220607-20220607020421161](image/20220607/branch_state_03.png)
+![image/20220607-20220607020421161](image/branch_state_03.png)
 
 
 
@@ -343,7 +341,7 @@ GitHub提供可视化的分支查看**Insights**下的**Network**
 
 在合并feature/go的时候出现冲突了。
 
-![image/20220607-20220607023022734](image/20220607/rebase_conflict.png)
+![image/20220607-20220607023022734](image/rebase_conflict.png)
 
 
 
@@ -353,7 +351,7 @@ GitHub提供可视化的分支查看**Insights**下的**Network**
 
 查看一下合并后的分支状况：
 
-![image/20220607-20220607023417960](image/20220607/branch_state_04.png)
+![image/20220607-20220607023417960](image/branch_state_04.png)
 
 ###### 第二种解决方案
 
@@ -414,15 +412,15 @@ git push origin feature/go
 
 查看一下feature/go的变化：
 
-![image/20220607-20220607030624069](image/20220607/branch_state_05.png)
+![image/20220607-20220607030624069](image/branch_state_05.png)
 
 对feature/go变完基之后，可以使用rebase and merge的方式合并到master分支去了。
 
-![image/20220607-20220607030915991](image/20220607/rebase_again.png)
+![image/20220607-20220607030915991](image/rebase_again.png)
 
 再将feature/cpp合并到master分支之后，再看一下分支的情况：
 
-![image/20220607-20220607031112278](image/20220607/branch_state_06.png)
+![image/20220607-20220607031112278](image/branch_state_06.png)
 
 两个特性分支已经通过变基的方式合并到master分支上了。
 
