@@ -178,7 +178,7 @@ git push
 
 #### 使用Github Desktop设置签名提交
 
-我使用的是Github Desktop Mac版，系统默认没有安装GPG工具。安装GPG工具有两种方式：
+我使用的是Github Desktop Mac版。其实桌面版与非桌面版Github客户端在设置上完全一致，需要注意的是Mac系统默认没有安装GPG工具。安装GPG工具有两种方式：
 
 - brew安装
 
@@ -202,6 +202,8 @@ gpg2 --version
 ```shell
 git config --global gpg.program gpg2
 ```
+
+再使用Github Desktop提交时就能看到认证标识了。
 
 
 
